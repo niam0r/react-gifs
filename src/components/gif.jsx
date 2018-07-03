@@ -4,7 +4,7 @@ export default class Gif extends Component {
   render() {
     let src = `https://media.giphy.com/media/${this.props.id}/giphy.gif`
     return (
-      <div className="selected-gif">
+      <div>
         <img src={src} alt="" className="gif"/>
       </div>
     );
