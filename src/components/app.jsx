@@ -18,13 +18,14 @@ export default class App extends Component {
   }
 
   search = (query) => {
-    giphy({GIPHY_API_KEY: '7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD', https: true }).search({
+    giphy({GIPHY_API_KEY: '7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD', https: true })
+      .search({
         q: query,
         rating: 'g',
         limit: 10
-    }, (err, res) => {
-      this.setState({ gifs: res.data });
-    });
+      }, (err, res) => {
+        this.setState({ gifs: res.data });
+      });
   }
 
   selectGif = (id) => {
