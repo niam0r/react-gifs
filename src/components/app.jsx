@@ -10,7 +10,10 @@ export default class App extends Component {
 
     this.state = {
       selectedGifId: 'dbtDDSvWErdf2',
-      gifs: []
+      gifs: [
+        {id: 'dbtDDSvWErdf2'},
+        {id: 'dbtDDSvWErdf2'}
+      ]
     };
   }
   render() {
@@ -23,7 +26,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList />
+          <GifList gifs={this.state.gifs}/>
         </div>
       </div>
     );
