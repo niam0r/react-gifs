@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import giphy from 'giphy-api';
 
 import SearchBar from './search_bar.jsx';
 import Gif from './gif.jsx';
@@ -15,7 +16,19 @@ export default class App extends Component {
         {id: 'dbtDDSvWErdf2'}
       ]
     };
+
+    this.search('it crowd');
   }
+
+  search = (query) => {
+    giphy('7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD').search({
+        q: query,
+        rating: 'g'
+    }, function (err, res) {
+        console.log(res);
+    });
+  }
+
   render() {
     return (
       <div>
