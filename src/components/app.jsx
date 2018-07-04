@@ -11,21 +11,18 @@ export default class App extends Component {
 
     this.state = {
       selectedGifId: 'dbtDDSvWErdf2',
-      gifs: [
-        {id: 'dbtDDSvWErdf2'},
-        {id: 'dbtDDSvWErdf2'}
-      ]
+      gifs: []
     };
 
     this.search('it crowd');
   }
 
   search = (query) => {
-    giphy('7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD').search({
+    giphy({GIPHY_API_KEY: '7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD', https: true }).search({
         q: query,
         rating: 'g'
-    }, function (err, res) {
-        console.log(res);
+    }, (err, res) => {
+      this.setState({ gifs: res.data });
     });
   }
 
