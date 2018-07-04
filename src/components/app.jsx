@@ -20,10 +20,15 @@ export default class App extends Component {
   search = (query) => {
     giphy({GIPHY_API_KEY: '7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD', https: true }).search({
         q: query,
-        rating: 'g'
+        rating: 'g',
+        limit: 10
     }, (err, res) => {
       this.setState({ gifs: res.data });
     });
+  }
+
+  selectGif = (id) => {
+    this.setState({ selectedGifId: id });
   }
 
   render() {
@@ -36,7 +41,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
         </div>
       </div>
     );
