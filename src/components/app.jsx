@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import giphy from 'giphy-api';
 
-import SearchBar from './search_bar.jsx';
-import Gif from './gif.jsx';
-import GifList from './gif_list.jsx';
+import SearchBar from './search_bar';
+import Gif from './gif';
+import GifList from './gif_list';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       selectedGifId: 'dbtDDSvWErdf2',
       gifs: []
@@ -18,7 +17,7 @@ export default class App extends Component {
   }
 
   search = (query) => {
-    giphy({GIPHY_API_KEY: '7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD', https: true })
+    giphy({ GIPHY_API_KEY: '7Aj3Cf9FmOPeA5LFDbGZ3kMgFZ11oisD', https: true })
       .search({
         q: query,
         rating: 'g',
